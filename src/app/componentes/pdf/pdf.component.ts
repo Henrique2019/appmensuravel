@@ -1,9 +1,10 @@
 import { Component, ViewChild, ElementRef  } from '@angular/core';
 import { SubGrupoModel } from 'src/app/models/sub-grupo-model';
 import { ClustService } from 'src/app/service/clust.service';
-
+import html2pdf from 'html2pdf.js';
 import * as jsPDF from 'jspdf'
 import { NgForm } from '@angular/forms';
+
 
 
 
@@ -64,25 +65,17 @@ export class PdfComponent  {
     form.resetForm();
     this.Clust = {} as SubGrupoModel;
   }
-  @ViewChild('content',{static: false}) content: ElementRef;
-
   downloadPDF() {
-    const options = {
-      background: 'white',
-      height : 1000,
-      width : 700,
-      //height : 900,
-      //width : 700,
+    var element = document.getElementById('content');
+    var opt = {
+      margin:[15, 10, 40, 40],
+      filename:     'persona.pdf',
+      image:        { type: 'jpeg'},
+      html2canvas:  { },
+      jsPDF:        {orientation: 'p' }
     };
 
+    html2pdf().set(opt).from(element).save();
 
-    let doc = new jsPDF();
-
-    const div = document.getElementById('content');
-    doc.setFontSize(40);
-    doc.addHTML(div, 0, 3, options,() => {
-
-       doc.save("Persona.pdf");
-    });
- }
+  }
 }
