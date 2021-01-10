@@ -33,7 +33,9 @@ import { MaterialModule } from './material.module';
  AppRoutingModule,
  NgbModule,
  BrowserAnimationsModule,
- MaterialModule
+ MaterialModule,
+
+
 
   ],
   exports: [

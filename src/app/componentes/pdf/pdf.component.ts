@@ -68,7 +68,7 @@ export class PdfComponent  {
   downloadPDF() {
     var element = document.getElementById('content');
     var opt = {
-      margin:[15, 10, 40, 40],
+      margin:[16, 0, 10, 10],
       filename:     'persona.pdf',
       image:        { type: 'jpeg'},
       html2canvas:  { },
