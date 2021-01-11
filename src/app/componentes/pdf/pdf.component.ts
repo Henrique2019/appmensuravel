@@ -72,7 +72,7 @@ export class PdfComponent  {
       filename:     'persona.pdf',
       image:        { type: 'jpeg'},
       html2canvas:  { },
-      jsPDF:        {orientation: 'p' }
+      jsPDF:        {orientation: 'p' },
     };
 
     html2pdf().set(opt).from(element).save();
